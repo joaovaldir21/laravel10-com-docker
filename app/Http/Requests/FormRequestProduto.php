@@ -21,7 +21,7 @@ class FormRequestProduto extends FormRequest
         if ($this->method() == "POST") {
             $request = [
                 'nome' => 'required',
-                'valor' => "required|regex:/^\d+(\.\d{1,2})?$/", //Para valores com decimal
+                'valor' => 'required',
             ];
         } 
         return $request;

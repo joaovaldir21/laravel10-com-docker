@@ -35,3 +35,6 @@ $("document").ready(function(){
     }, 4000 ); // 4 secs
 
 });
+
+// Input Mask
+$('#mascara_valor').mask('#.##0,00', { reverse: true})
