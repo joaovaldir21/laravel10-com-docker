@@ -8,13 +8,33 @@
     <div>
         <form action="{{ route('produtos.index') }}" method="get">
             <input type="text" name="pesquisar" placeholder="Digite o nome" />
-            <button> Pesquisar </button>
-            <a type="button" href="" class="btn btn-success float-end">
+            <button type="button" class="btn btn-primary"> Pesquisar </button>
+            <a type="button" href="{{ route('cadastrar.produto') }}" class="btn btn-success float-end">
                 Incluir Produto
             </a>
         </form>
 
         <div class="table-responsive small mt-4">
+
+            {{-- Exibe mensagen Sucesso--}}
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            {{-- Exibe mensagen Erro--}}
+            @if (session('erro'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('erro') }}
+                </div>
+            @endif
+            {{-- Exibe mensagen Alerta--}}
+            @if (session('info'))
+                <div class="alert alert-warning" role="alert">
+                    {{ session('info') }}
+                </div>
+            @endif
+
 
             @if ($findProdutos->isEmpty())
                 <div class="alert alert-warning" role="alert">
@@ -35,8 +55,11 @@
                                 <td>{{ $produto->nome }}</td>
                                 <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
                                 <td>
-                                    <a href="" class="btn btn-light btn-sm"> Editar </a>
-                                    <a href="{{ route('produtos.delete') }}" class="btn btn-danger btn-sm"> Excluir </a>
+                                    <a href="" class="btn btn-info btn-sm"> Editar </a>
+
+                                    {{-- Para excluir com AJAX(Carregando...) --}}
+                                    <meta name="csrf-token" content=" {{ csrf_token() }}" />
+                                    <a onclick="deleteRegistroPaginacao( '{{ route('produtos.delete') }}', {{ $produto->id }} )" class="btn btn-danger btn-sm"> Excluir </a>
                                 </td>
                             </tr>
                             
