@@ -46,6 +46,8 @@
                     <tr>
                         <th>Nome</th>
                         <th>Valor</th>
+                        <th>Cadastro</th>
+                        <th>Atualizado</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -54,12 +56,14 @@
                             <tr>
                                 <td>{{ $produto->nome }}</td>
                                 <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
+                                <td>{{ date('d-m-Y - H:i:s', strtotime("$produto->created_at")) }}</td>
+                                <td>{{ date('d-m-Y - H:i:s', strtotime("$produto->updated_at")) }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm"> Editar </a>
+                                    <a href="{{ route('atualizar.produto', $produto->id) }}" class="btn btn-info btn-sm"> Editar </a>
 
                                     {{-- Para excluir com AJAX(Carregando...) --}}
                                     <meta name="csrf-token" content=" {{ csrf_token() }}" />
-                                    <a onclick="deleteRegistroPaginacao( '{{ route('produtos.delete') }}', {{ $produto->id }} )" class="btn btn-danger btn-sm"> Excluir </a>
+                                    <a onclick="deleteRegistroPaginacao( '{{ route('produto.delete') }}', {{ $produto->id }} )" class="btn btn-danger btn-sm"> Excluir </a>
                                 </td>
                             </tr>
                             

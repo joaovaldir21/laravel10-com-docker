@@ -10,8 +10,10 @@
     <meta name="generator" content="Hugo 0.118.2">
 
     <title>Sistema Gestor</title>
-
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <!-- Para mensagens alerta -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 
@@ -184,5 +186,9 @@
     {{-- BlockUI loading --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
     <script src="{{ asset('assets/js/projeto.js')}}"></script>
+
+    {{-- Para Mensagens Alerta --}}
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 </html>

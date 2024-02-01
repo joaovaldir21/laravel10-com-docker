@@ -9,7 +9,7 @@
 
         <div class="mb-3">
             <label class="form-label">Nome</label>
-            <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" placeholder="Ex: Produto 1">
+            <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome') }}" placeholder="Ex: Produto 1">
             @if ($errors->has('nome'))
                 <div class="invalid-feedback"> {{ $errors->first('nome') }} </div>                
             @endif
@@ -17,13 +17,13 @@
 
         <div class="mb-3">
             <label class="form-label">Valor</label>
-            <input type="text" name="valor" id="mascara_valor" class="form-control @error('valor') is-invalid @enderror">
+            <input type="text" name="valor" id="mascara_valor" class="form-control @error('valor') is-invalid @enderror" value="{{ old('valor') }}">
             @if ($errors->has('valor'))
                 <div class="invalid-feedback"> {{ $errors->first('valor') }} </div>                
             @endif
         </div>
 
-        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <button type="submit" class="btn btn-success">Gravar</button>
 
     </form>
 @endsection
