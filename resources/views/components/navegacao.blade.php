@@ -12,9 +12,25 @@
               Dashboard
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{{ route('estados.index') }}">
+              <svg class="bi"><use xlink:href="#puzzle"/></svg>
+              Estados
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{{ route('cidades.index') }}">
+              <svg class="bi"><use xlink:href="#list"/></svg>
+              Cidades
+            </a>
+          </li>
+
+
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2" href="#">
-              <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+              <svg class="bi"><use xlink:href="#graph-up"/></svg>
               Vendas
             </a>
           </li>
